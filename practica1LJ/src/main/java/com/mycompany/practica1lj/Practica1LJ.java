@@ -4,6 +4,8 @@
 
 package com.mycompany.practica1lj;
 
+import com.mycompany.practica1lj.Frontend.MenuPrincipal;
+
 /**
  *
  * @author alesso
@@ -11,6 +13,7 @@ package com.mycompany.practica1lj;
 public class Practica1LJ {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
     }
 }
