@@ -10,24 +10,19 @@ import java.awt.Color;
  *
  * @author alesso
  */
-public class Token {
+public class TokenEspecial {
 
     private final String lexema;
     private final Color color;
     private int fila;
     private int columna;
-    private final TipoSimbolo tipo; // Tipo de símbolo
+    private String tipo;
 
-    public enum TipoSimbolo {
-        OPERADOR, COMPARACION, IDENTIFICADOR, LOGICO, ASIGNACION, RESERVADAS, DATOS, ENTERO, DECIMAL, BOOLEANO, CADENA, CARACTER, SIGNOS, OTRO
-    }
-
-    public Token(String token, Color color, int fila, int columna, TipoSimbolo tipo) {
+    public TokenEspecial(String token, Color color, int fila, int columna) {
         this.lexema = token;
         this.color = color;
         this.fila = fila;
         this.columna = columna;
-        this.tipo = tipo;
     }
 
     public String getToken() {
@@ -54,13 +49,12 @@ public class Token {
         this.columna = columna;
     }
 
-    public TipoSimbolo getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Token: %s, Color: %s, Fila: %d, Columna: %d", lexema, color.toString(), fila, columna);
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 }
