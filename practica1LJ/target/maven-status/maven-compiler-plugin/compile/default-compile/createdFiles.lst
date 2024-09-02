@@ -6,6 +6,7 @@ com/mycompany/practica1lj/Frontend/Reporte$ColorRenderer.class
 com/mycompany/practica1lj/Frontend/MenuPrincipal$2.class
 com/mycompany/practica1lj/Backend/AnalizadorCodigo.class
 com/mycompany/practica1lj/Frontend/MenuPrincipal$1.class
+com/mycompany/practica1lj/Backend/GraphvizController.class
 com/mycompany/practica1lj/Frontend/DatoToken.class
 com/mycompany/practica1lj/Frontend/Reporte$1.class
 com/mycompany/practica1lj/Practica1LJ.class
@@ -16,4 +17,5 @@ com/mycompany/practica1lj/Frontend/Reporte.class
 com/mycompany/practica1lj/Backend/GestorSimbolos.class
 com/mycompany/practica1lj/Backend/Token.class
 com/mycompany/practica1lj/Frontend/MenuPrincipal$4.class
+com/mycompany/practica1lj/Frontend/DatoToken$2.class
 com/mycompany/practica1lj/Backend/Token$TipoSimbolo.class

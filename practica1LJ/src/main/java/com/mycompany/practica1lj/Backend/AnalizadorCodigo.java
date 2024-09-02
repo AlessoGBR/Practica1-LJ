@@ -70,7 +70,7 @@ public class AnalizadorCodigo {
                 String tokenStr = tokenActual.toString();
                 if (esCadenaTexto(tokenStr)) {
                     Token.TipoSimbolo tipo = Token.TipoSimbolo.CADENA;
-                    Color color = obtenerColorParaTipoSimbolo(tipo, tokenStr);
+                    Color color = obtenerColorParaCadena(tipo, tokenStr);
                     listaTokens.add(new Token(tokenStr, color, fila, columna - tokenStr.length(), tipo));
                 }
                 tokenActual.setLength(0);
@@ -95,7 +95,7 @@ public class AnalizadorCodigo {
                 String tokenStr = tokenActual.toString();
                 if (esCaracter(tokenStr)) {
                     Token.TipoSimbolo tipo = Token.TipoSimbolo.CARACTER;
-                    Color color = obtenerColorParaTipoSimbolo(tipo, tokenStr);
+                    Color color = obtenerColorParaCaracter(tipo, tokenStr);
                     listaTokens.add(new Token(tokenStr, color, fila, columna - tokenStr.length(), tipo));
                 }
                 tokenActual.setLength(0);
@@ -146,8 +146,13 @@ public class AnalizadorCodigo {
                 String tokenStr = tokenActual.toString();
                 Token.TipoSimbolo tipo = esNumeroDecimal(tokenStr) ? Token.TipoSimbolo.DECIMAL : (esNumeroEntero(tokenStr) ? Token.TipoSimbolo.ENTERO : null);
                 if (tipo != null) {
-                    Color color = obtenerColorParaTipoSimbolo(tipo, tokenStr);
-                    listaTokens.add(new Token(tokenStr, color, fila, columna - tokenStr.length(), tipo));
+                    if (esDecimal) {
+                        Color color = obtenerColorParaNumeroDecimal(tipo, tokenStr);
+                        listaTokens.add(new Token(tokenStr, color, fila, columna - tokenStr.length(), tipo));
+                    } else {
+                        Color color = obtenerColorParaNumero(tipo, tokenStr);
+                        listaTokens.add(new Token(tokenStr, color, fila, columna - tokenStr.length(), tipo));
+                    }
                 }
                 tokenActual.setLength(0);
                 continue;
@@ -195,12 +200,44 @@ public class AnalizadorCodigo {
         }
     }
 
+    private Color obtenerColorParaCaracter(Token.TipoSimbolo tipo, String token) {
+        if (tipo == Token.TipoSimbolo.CARACTER) {
+            return new Color(0x0050EF); // Color para palabras caracteres
+        } else {
+            return gestorSimbolos.getColorParaSimbolo(token); // Obtener color del gestor de símbolos
+        }
+    }
+
+    private Color obtenerColorParaNumeroDecimal(Token.TipoSimbolo tipo, String token) {
+        if (tipo == Token.TipoSimbolo.DECIMAL) {
+            return new Color(0xFFFF88); // Color para palabras numeros decimales
+        } else {
+            return gestorSimbolos.getColorParaSimbolo(token); // Obtener color del gestor de símbolos
+        }
+    }
+
+    private Color obtenerColorParaNumero(Token.TipoSimbolo tipo, String token) {
+        if (tipo == Token.TipoSimbolo.ENTERO) {
+            return new Color(0x1BA1E2); // Color para palabras numeros enteros
+        } else {
+            return gestorSimbolos.getColorParaSimbolo(token); // Obtener color del gestor de símbolos
+        }
+    }
+
+    private Color obtenerColorParaCadena(Token.TipoSimbolo tipo, String token) {
+        if (tipo == Token.TipoSimbolo.CADENA) {
+            return new Color(0xE51400); // Color para palabras cadenas
+        } else {
+            return gestorSimbolos.getColorParaSimbolo(token); // Obtener color del gestor de símbolos
+        }
+    }
+
     private void procesarToken(String token, List<Token> listaTokens, List<String> errores, int fila, int columna) {
         Token.TipoSimbolo tipoSimbolo = obtenerTipoSimbolo(token);
         if (tipoSimbolo != null) {
             Color color = operadoresColores.getOrDefault(token, Color.BLACK);
             listaTokens.add(new Token(token, color, fila, columna, tipoSimbolo));
-        } 
+        }
     }
 
     private Token.TipoSimbolo obtenerTipoSimbolo(String token) {
@@ -254,8 +291,8 @@ public class AnalizadorCodigo {
     private boolean esPalabraReservada(String token) {
         return token.equals("Module") || token.equals("End") || token.equals("Sub") || token.equals("Main")
                 || token.equals("Dim") || token.equals("As") || token.equals("Integer") || token.equals("String")
-                || token.equals("Boolean") || token.equals("Double") || token.equals("Char") || token.equals("Console.WriteLine")
-                || token.equals("Console.ReadLine") || token.equals("If") || token.equals("ElseIf") || token.equals("Else")
+                || token.equals("Boolean") || token.equals("Double") || token.equals("Char") || token.equals("ConsoleWriteLine")
+                || token.equals("ConsoleReadLine") || token.equals("If") || token.equals("ElseIf") || token.equals("Else")
                 || token.equals("Then") || token.equals("While") || token.equals("Do") || token.equals("Loop")
                 || token.equals("For") || token.equals("To") || token.equals("Next") || token.equals("Function")
                 || token.equals("Return") || token.equals("Const");

@@ -60,7 +60,7 @@ public class Reporte extends javax.swing.JFrame {
         });
 
         panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panel.setLayout(new java.awt.GridLayout());
+        panel.setLayout(new java.awt.GridLayout(1, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

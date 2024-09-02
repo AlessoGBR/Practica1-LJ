@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -222,7 +221,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             cuadro.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    DatoToken datos = new DatoToken(panelToken.getFila(), panelToken.getColumna(),panelToken.getTipo().toString());
+                    /*
+                    DatoToken datos = new DatoToken(panelToken.getFila(), panelToken.getColumna(),
+                            panelToken.getTipo().toString(), panelToken.getToken());*/
+                    DatoToken datos = new DatoToken(panelToken);
                     datos.setVisible(true);                    
                 }
             });

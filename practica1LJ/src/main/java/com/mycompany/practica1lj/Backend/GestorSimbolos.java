@@ -49,44 +49,17 @@ public class GestorSimbolos {
         operadoresColores.put("-=", Color.WHITE);
         operadoresColores.put("*=", Color.WHITE);
         operadoresColores.put("/=", Color.WHITE);
-
-        // Reservadas 
-        /*
-        operadoresColores.put("Module", new Color(0x60A917));
-        operadoresColores.put("End", new Color(0x60A917));
-        operadoresColores.put("Sub", new Color(0x60A917));
-        operadoresColores.put("Main", new Color(0x60A917));
-        operadoresColores.put("Dim", new Color(0x60A917));
-        operadoresColores.put("As", new Color(0x60A917));
-        operadoresColores.put("Integer", new Color(0x60A917));
-        operadoresColores.put("String", new Color(0x60A917));
-        operadoresColores.put("Boolean", new Color(0x60A917));
-        operadoresColores.put("Double", new Color(0x60A917));
-        operadoresColores.put("Char", new Color(0x60A917));
-        operadoresColores.put("Console.WriteLine", new Color(0x60A917));
-        operadoresColores.put("Console.ReadLine", new Color(0x60A917));
-        operadoresColores.put("If", new Color(0x60A917));
-        operadoresColores.put("ElseIf", new Color(0x60A917));
-        operadoresColores.put("Else", new Color(0x60A917));
-        operadoresColores.put("Then", new Color(0x60A917));
-        operadoresColores.put("While", new Color(0x60A917));
-        operadoresColores.put("Do", new Color(0x60A917));
-        operadoresColores.put("Loop", new Color(0x60A917));
-        operadoresColores.put("For", new Color(0x60A917));
-        operadoresColores.put("To", new Color(0x60A917));
-        operadoresColores.put("Next", new Color(0x60A917));
-        operadoresColores.put("Function", new Color(0x60A917));
-        operadoresColores.put("Return", new Color(0x60A917));
-        operadoresColores.put("Const", new Color(0x60A917));
-         */
+        
         // Tipo de datos
         operadoresColores.put("ENTERO", new Color(0x1BA1E2));
         operadoresColores.put("DECIMAL", new Color(0xFFFF88));
         operadoresColores.put("CADENA", new Color(0xE51400));
         operadoresColores.put("BOOLEANO", new Color(0xFA6800));
         operadoresColores.put("CARACTER", new Color(0x0050EF));
+        
         // Comentario
         operadoresColores.put("''", new Color(0xB3B3B3));
+        
         // Simbolos 
         operadoresColores.put("()", new Color(0x9AD8DB));
         operadoresColores.put("{}", new Color(0xDBD29A));
